@@ -1,0 +1,55 @@
+﻿@model List<GeneroViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Gêneros";
+}
+<div class="container main-container">
+    <h1>Gêneros</h1>
+    <hr>
+
+    <p>
+        <a class="btn btn-info" asp-controller="Genero" asp-action="Novo">Novo Gênero</a>
+    </p>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    Nome
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var genero in Model)
+            {
+                <tr>
+                    <td>
+                        @genero.Nome
+                    </td>
+                    <td class="text-right">
+                        <a class="btn btn-warning"
+                           asp-controller="Genero"
+                           asp-action="Detalhes"
+                           asp-route-id="@genero.GeneroId">
+                            Detalhes
+                        </a>
+                        <a class="btn btn-info"
+                           asp-controller="Genero"
+                           asp-action="Editar"
+                           asp-route-id="@genero.GeneroId">
+                            Editar
+                        </a>
+                        <a class="btn btn-danger"
+                           asp-controller="Genero"
+                           asp-action="Excluir"
+                           asp-route-id="@genero.GeneroId">
+                            Excluir
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -43,6 +43,11 @@ namespace Tunes.AspNet.Mvc
                 options.BaseAddress = new Uri("https://localhost:44339/api/v1/albuns/");
             });
 
+            services.AddHttpClient<GeneroApiClient>(options =>
+            {
+                options.BaseAddress = new Uri("https://localhost:44339/api/v1/generos/");
+            });
+
             services.AddMvc();
         }
 
