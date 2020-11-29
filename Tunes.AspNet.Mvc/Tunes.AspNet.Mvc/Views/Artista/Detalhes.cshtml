@@ -1,0 +1,28 @@
+﻿@model ArtistaViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container main-container">
+    <h4>@Model.Nome</h4>
+    <br>
+
+    <div class="row">
+        <div class="col-md-6">
+            <dl>
+                <dt>
+                    Nome
+                </dt>
+                <dd>
+                    @Model.Nome
+                </dd>
+            </dl>
+
+            <div>
+                <a class="btn btn-warning" asp-controller="Artista" asp-action="Editar" asp-route-id="@Model.ArtistaId">Editar</a>&nbsp;
+                <a class="btn btn-info" href="javascript:window.history.back();">Voltar</a>
+            </div>
+        </div>
+    </div>
+
+</div>
