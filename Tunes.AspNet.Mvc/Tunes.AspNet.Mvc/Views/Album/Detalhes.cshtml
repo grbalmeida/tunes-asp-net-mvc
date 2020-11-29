@@ -1,0 +1,35 @@
+﻿@model AlbumViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Álbum " + Model.Titulo;
+}
+<div class="container main-container">
+    <h4>@Model.Titulo</h4>
+    <br>
+
+    <div class="row">
+        <div class="col-md-6">
+            <dl>
+                <dt>
+                    Título
+                </dt>
+                <dd>
+                    @Model.Titulo
+                </dd>
+                <dt>
+                    Artista
+                </dt>
+                <dd>
+                    @Model.Artista?.Nome
+                </dd>
+            </dl>
+
+            <div>
+                <a class="btn btn-warning" asp-controller="Album" asp-action="Editar" asp-route-id="@Model.AlbumId">Editar</a>&nbsp;
+                <a class="btn btn-info" href="javascript:window.history.back();">Voltar</a>
+            </div>
+        </div>
+    </div>
+
+</div>

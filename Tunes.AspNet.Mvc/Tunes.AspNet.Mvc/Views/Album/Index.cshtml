@@ -1,50 +1,56 @@
-﻿@model List<ArtistaViewModel>
+﻿@model List<AlbumViewModel>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Artistas";
+    ViewData["Title"] = "Álbuns";
 }
 <div class="container main-container">
-    <h1>Artistas</h1>
+    <h1>Álbuns</h1>
     <hr>
 
     <p>
-        <a class="btn btn-info" asp-controller="Artista" asp-action="Novo">Novo Artista</a>
+        <a class="btn btn-info" asp-controller="Album" asp-action="Novo">Novo Álbum</a>
     </p>
 
     <table class="table table-hover">
         <thead class="thead-dark">
             <tr>
                 <th>
-                    Nome
+                    Título
+                </th>
+                <th>
+                    Artista
                 </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var artista in Model)
+            @foreach (var album in Model)
             {
                 <tr>
                     <td>
-                        @artista.Nome
+                        @album.Titulo
+                    </td>
+                    <td>
+                        @album.Artista?.Nome
                     </td>
                     <td class="text-right">
                         <a class="btn btn-warning"
-                           asp-controller="Artista"
+                           asp-controller="Album"
                            asp-action="Detalhes"
-                           asp-route-id="@artista.ArtistaId">
+                           asp-route-id="@album.AlbumId">
                             Detalhes
                         </a>
                         <a class="btn btn-info"
-                           asp-controller="Artista"
+                           asp-controller="Album"
                            asp-action="Editar"
-                           asp-route-id="@artista.ArtistaId">
+                           asp-route-id="@album.AlbumId">
                             Editar
                         </a>
                         <a class="btn btn-danger"
-                           asp-controller="Artista"
+                           asp-controller="Album"
                            asp-action="Excluir"
-                           asp-route-id="@artista.ArtistaId">
+                           asp-route-id="@album.AlbumId">
                             Excluir
                         </a>
                     </td>

@@ -38,6 +38,11 @@ namespace Tunes.AspNet.Mvc
                 options.BaseAddress = new Uri("https://localhost:44339/api/v1/artistas/");
             });
 
+            services.AddHttpClient<AlbumApiClient>(options =>
+            {
+                options.BaseAddress = new Uri("https://localhost:44339/api/v1/albuns/");
+            });
+
             services.AddMvc();
         }
 

@@ -1,14 +1,14 @@
-﻿@model ArtistaViewModel
+﻿@model AlbumViewModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Excluir " + Model.Nome;
+    ViewData["Title"] = "Excluir " + Model.Titulo;
 }
 <div class="container main-container">
     <div class="row">
         <div asp-validation-summary="All" class="text-danger"></div>
     </div>
-    <h4>Excluir @Model.Nome </h4>
+    <h4>Excluir @Model.Titulo </h4>
     <br>
     <h5>Você tem certeza disso?</h5>
 
@@ -16,16 +16,22 @@
         <div class="col-md-6">
             <dl>
                 <dt>
-                    Nome
+                    Título
                 </dt>
                 <dd>
-                    @Model.Nome
+                    @Model.Titulo
+                </dd>
+                <dt>
+                    Artista
+                </dt>
+                <dd>
+                    @Model.Artista?.Nome
                 </dd>
             </dl>
 
             <div>
                 <form asp-action="Excluir">
-                    <input type="hidden" asp-for="ArtistaId" />
+                    <input type="hidden" asp-for="AlbumId" />
                     <input type="submit" value="Excluir" class="btn btn-danger" />
                     <a class="btn btn-info" href="javascript:window.history.back();">Voltar</a>
                 </form>
