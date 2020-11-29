@@ -1,0 +1,55 @@
+﻿@model List<TipoMidiaViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Tipos de Mídia";
+}
+<div class="container main-container">
+    <h1>Tipos de Mídia</h1>
+    <hr>
+
+    <p>
+        <a class="btn btn-info" asp-controller="TipoMidia" asp-action="Novo">Novo Tipo de Mídia</a>
+    </p>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    Nome
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tipoMidia in Model)
+            {
+                <tr>
+                    <td>
+                        @tipoMidia.Nome
+                    </td>
+                    <td class="text-right">
+                        <a class="btn btn-warning"
+                           asp-controller="TipoMidia"
+                           asp-action="Detalhes"
+                           asp-route-id="@tipoMidia.TipoMidiaId">
+                            Detalhes
+                        </a>
+                        <a class="btn btn-info"
+                           asp-controller="TipoMidia"
+                           asp-action="Editar"
+                           asp-route-id="@tipoMidia.TipoMidiaId">
+                            Editar
+                        </a>
+                        <a class="btn btn-danger"
+                           asp-controller="TipoMidia"
+                           asp-action="Excluir"
+                           asp-route-id="@tipoMidia.TipoMidiaId">
+                            Excluir
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

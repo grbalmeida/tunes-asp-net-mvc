@@ -4,8 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using Tunes.AspNet.Mvc.HttpClients;
+using Tunes.AspNet.Mvc.Configuration;
 
 namespace Tunes.AspNet.Mvc
 {
@@ -28,25 +27,7 @@ namespace Tunes.AspNet.Mvc
                     options.LoginPath = "/Usuario/Login";
                 });
 
-            services.AddHttpClient<AuthApiClient>(options =>
-            {
-                options.BaseAddress = new Uri("https://localhost:44339/api/v1/conta/");
-            });
-
-            services.AddHttpClient<ArtistaApiClient>(options =>
-            {
-                options.BaseAddress = new Uri("https://localhost:44339/api/v1/artistas/");
-            });
-
-            services.AddHttpClient<AlbumApiClient>(options =>
-            {
-                options.BaseAddress = new Uri("https://localhost:44339/api/v1/albuns/");
-            });
-
-            services.AddHttpClient<GeneroApiClient>(options =>
-            {
-                options.BaseAddress = new Uri("https://localhost:44339/api/v1/generos/");
-            });
+            services.AddHttpClients(Configuration);
 
             services.AddMvc();
         }
