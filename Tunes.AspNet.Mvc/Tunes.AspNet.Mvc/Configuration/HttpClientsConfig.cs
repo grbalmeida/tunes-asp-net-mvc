@@ -36,6 +36,11 @@ namespace Tunes.AspNet.Mvc.Configuration
                 options.BaseAddress = new Uri($"{apiUrlV1}tipos-de-midia/");
             });
 
+            services.AddHttpClient<PlaylistApiClient>(options =>
+            {
+                options.BaseAddress = new Uri($"{apiUrlV1}playlists/");
+            });
+
             return services;
         }
     }
