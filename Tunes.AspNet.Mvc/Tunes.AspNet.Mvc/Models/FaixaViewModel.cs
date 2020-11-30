@@ -24,10 +24,18 @@ namespace Tunes.AspNet.Mvc.Models
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public decimal PrecoUnitario { get; set; }
 
+        public int AlbumId { get; set; }
+        public int TipoMidiaId { get; set; }
+        public int GeneroId { get; set; }
+
         public AlbumViewModel Album { get; set; }
         public TipoMidiaViewModel TipoMidia { get; set; }
         public GeneroViewModel Genero { get; set; }
         public IList<PlaylistFaixaViewModel> Playlists { get; set; }
         public IList<ItemNotaFiscalViewModel> ItensNotaFiscal { get; set; }
+
+        public IList<AlbumViewModel> Albuns { get; set; }
+        public IList<TipoMidiaViewModel> TiposDeMidia { get; set; }
+        public IList<GeneroViewModel> Generos { get; set; }
     }
 }

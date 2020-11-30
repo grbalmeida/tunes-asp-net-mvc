@@ -41,6 +41,11 @@ namespace Tunes.AspNet.Mvc.Configuration
                 options.BaseAddress = new Uri($"{apiUrlV1}playlists/");
             });
 
+            services.AddHttpClient<FaixaApiClient>(options =>
+            {
+                options.BaseAddress = new Uri($"{apiUrlV1}faixas/");
+            });
+
             return services;
         }
     }

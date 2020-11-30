@@ -1,0 +1,71 @@
+﻿@model FaixaViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Faixa " + Model.Nome;
+}
+<div class="container main-container">
+    <h4>@Model.Nome</h4>
+    <br>
+
+    <div class="row">
+        <div class="col-md-6">
+            <dl>
+                <dt>
+                    Nome
+                </dt>
+                <dd>
+                    @Model.Nome
+                </dd>
+                <dt>
+                    Compositor
+                </dt>
+                <dd>
+                    @Model.Compositor
+                </dd>
+                <dt>
+                    Álbum
+                </dt>
+                <dd>
+                    @Model.Album?.Titulo
+                </dd>
+                <dt>
+                    Tipo de Mídia
+                </dt>
+                <dd>
+                    @Model.TipoMidia?.Nome
+                </dd>
+                <dt>
+                    Gênero
+                </dt>
+                <dd>
+                    @Model.Genero?.Nome
+                </dd>
+                <dt>
+                    Milissegundos
+                </dt>
+                <dd>
+                    @Model.Milissegundos
+                </dd>
+                <dt>
+                    Bytes
+                </dt>
+                <dd>
+                    @Model.Bytes
+                </dd>
+                <dt>
+                    Preço Unitário
+                </dt>
+                <dd>
+                    @Model.PrecoUnitario
+                </dd>
+            </dl>
+
+            <div>
+                <a class="btn btn-warning" asp-controller="Genero" asp-action="Editar" asp-route-id="@Model.FaixaId">Editar</a>&nbsp;
+                <a class="btn btn-info" href="javascript:window.history.back();">Voltar</a>
+            </div>
+        </div>
+    </div>
+
+</div>

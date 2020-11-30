@@ -1,0 +1,79 @@
+﻿@model List<FaixaViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Faixas";
+}
+<div class="container main-container">
+    <h1>Faixas</h1>
+    <hr>
+
+    <p>
+        <a class="btn btn-info" asp-controller="Faixa" asp-action="Novo">Nova Faixa</a>
+    </p>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    Nome
+                </th>
+                <th>
+                    Compositor
+                </th>
+                <th>
+                    Álbum
+                </th>
+                <th>
+                    Tipo de Mídia
+                </th>
+                <th>
+                    Gênero
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var faixa in Model)
+            {
+                <tr>
+                    <td>
+                        @faixa.Nome
+                    </td>
+                    <td>
+                        @faixa.Compositor
+                    </td>
+                    <td>
+                        @faixa.Album?.Titulo
+                    </td>
+                    <td>
+                        @faixa.TipoMidia?.Nome
+                    </td>
+                    <td>
+                        @faixa.Genero?.Nome
+                    </td>
+                    <td class="text-right">
+                        <a class="btn btn-warning"
+                           asp-controller="Faixa"
+                           asp-action="Detalhes"
+                           asp-route-id="@faixa.FaixaId">
+                            Detalhes
+                        </a>
+                        <a class="btn btn-info"
+                           asp-controller="Faixa"
+                           asp-action="Editar"
+                           asp-route-id="@faixa.FaixaId">
+                            Editar
+                        </a>
+                        <a class="btn btn-danger"
+                           asp-controller="Faixa"
+                           asp-action="Excluir"
+                           asp-route-id="@faixa.FaixaId">
+                            Excluir
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

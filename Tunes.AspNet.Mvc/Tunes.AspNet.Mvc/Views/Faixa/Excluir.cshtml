@@ -1,0 +1,78 @@
+﻿@model FaixaViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Excluir " + Model.Nome;
+}
+<div class="container main-container">
+    <div class="row">
+        <div asp-validation-summary="All" class="text-danger"></div>
+    </div>
+    <h4>Excluir @Model.Nome </h4>
+    <br>
+    <h5>Você tem certeza disso?</h5>
+
+    <div class="row">
+        <div class="col-md-6">
+            <dl>
+                <dt>
+                    Nome
+                </dt>
+                <dd>
+                    @Model.Nome
+                </dd>
+                <dt>
+                    Compositor
+                </dt>
+                <dd>
+                    @Model.Compositor
+                </dd>
+                <dt>
+                    Álbum
+                </dt>
+                <dd>
+                    @Model.Album?.Titulo
+                </dd>
+                <dt>
+                    Tipo de Mídia
+                </dt>
+                <dd>
+                    @Model.TipoMidia?.Nome
+                </dd>
+                <dt>
+                    Gênero
+                </dt>
+                <dd>
+                    @Model.Genero?.Nome
+                </dd>
+                <dt>
+                    Milissegundos
+                </dt>
+                <dd>
+                    @Model.Milissegundos
+                </dd>
+                <dt>
+                    Bytes
+                </dt>
+                <dd>
+                    @Model.Bytes
+                </dd>
+                <dt>
+                    Preço Unitário
+                </dt>
+                <dd>
+                    @Model.PrecoUnitario
+                </dd>
+            </dl>
+
+            <div>
+                <form asp-action="Excluir">
+                    <input type="hidden" asp-for="FaixaId" />
+                    <input type="submit" value="Excluir" class="btn btn-danger" />
+                    <a class="btn btn-info" href="javascript:window.history.back();">Voltar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
