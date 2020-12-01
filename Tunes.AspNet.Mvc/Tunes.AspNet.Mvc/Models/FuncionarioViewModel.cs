@@ -48,8 +48,11 @@ namespace Tunes.AspNet.Mvc.Models
         [EmailAddress(ErrorMessage = "O campo {0} está em um formato inválido")]
         public string Email { get; set; }
 
+        public int GerenteId { get; set; }
+
         public FuncionarioViewModel Gerente { get; set; }
         public IList<FuncionarioViewModel> Equipe { get; set; }
         public IList<ClienteViewModel> ClientesAtendidos { get; set; }
+        public IList<FuncionarioViewModel> Gerentes { get; set; }
     }
 }

@@ -1,0 +1,62 @@
+﻿@model FuncionarioViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["NomeCompleto"] = Model.PrimeiroNome + " " + Model.Sobrenome;
+    ViewData["Title"] = "Excluir " + ViewData["NomeCompleto"];
+}
+<div class="container main-container">
+    <div class="row">
+        <div asp-validation-summary="All" class="text-danger"></div>
+    </div>
+    <h4>Excluir @ViewData["NomeCompleto"] </h4>
+    <br>
+    <h5>Você tem certeza disso?</h5>
+
+    <div class="row">
+        <div class="col-md-6">
+            <dl>
+                <dt>Nome Completo</dt>
+                <dd>@ViewData["NomeCompleto"]</dd>
+                <dt>Título</dt>
+                <dd>@Model.Titulo</dd>
+                <dt>Data de Nascimento</dt>
+                <dd>@Model.DataNascimento.ToString("dd/MM/yyyy")</dd>
+                <dt>Data de Admissão</dt>
+                <dd>@Model.DataAdmissao.ToString("dd/MM/yyyy")</dd>
+                <dt>Gerente</dt>
+                <dd>@Model.Gerente?.PrimeiroNome</dd>
+            </dl>
+
+            <h6>Endereço</h6>
+
+            <dl>
+                <dt>Endereço</dt>
+                <dd>@Model.Endereco</dd>
+                <dt>Cidade</dt>
+                <dd>@Model.Cidade</dd>
+                <dt>Estado</dt>
+                <dd>@Model.Estado</dd>
+                <dt>País</dt>
+                <dd>@Model.Pais</dd>
+                <dt>CEP</dt>
+                <dd>@Model.CEP</dd>
+                <dt>Fone</dt>
+                <dd>@Model.Fone</dd>
+                <dt>Fax</dt>
+                <dd>@Model.Fax</dd>
+                <dt>Email</dt>
+                <dd>@Model.Email</dd>
+            </dl>
+
+            <div>
+                <form asp-action="Excluir">
+                    <input type="hidden" asp-for="FuncionarioId" />
+                    <input type="submit" value="Excluir" class="btn btn-danger" />
+                    <a class="btn btn-info" href="javascript:window.history.back();">Voltar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

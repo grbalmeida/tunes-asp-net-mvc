@@ -1,0 +1,85 @@
+﻿@model List<FuncionarioViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Funcionários";
+}
+<div class="container main-container">
+    <h1>Funcionários</h1>
+    <hr>
+
+    <p>
+        <a class="btn btn-info" asp-controller="Funcionario" asp-action="Novo">Novo Funcionário</a>
+    </p>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    Nome Completo
+                </th>
+                <th>
+                    Título
+                </th>
+                <th>
+                    Data de Nascimento
+                </th>
+                <th>
+                    Data de Admissão
+                </th>
+                <th>
+                    Fone
+                </th>
+                <th>
+                    Email
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var funcionario in Model)
+            {
+                <tr>
+                    <td>
+                        @($"{funcionario.PrimeiroNome} {funcionario.Sobrenome}")
+                    </td>
+                    <td>
+                        @funcionario.Titulo
+                    </td>
+                    <td>
+                        @funcionario.DataNascimento.ToString("dd/MM/yyyy")
+                    </td>
+                    <td>
+                        @funcionario.DataAdmissao.ToString("dd/MM/yyyy")
+                    </td>
+                    <td>
+                        @funcionario.Fone
+                    </td>
+                    <td>
+                        @funcionario.Email
+                    </td>
+                    <td class="text-right">
+                        <a class="btn btn-warning"
+                           asp-controller="Funcionario"
+                           asp-action="Detalhes"
+                           asp-route-id="@funcionario.FuncionarioId">
+                            Detalhes
+                        </a>
+                        <a class="btn btn-info"
+                           asp-controller="Funcionario"
+                           asp-action="Editar"
+                           asp-route-id="@funcionario.FuncionarioId">
+                            Editar
+                        </a>
+                        <a class="btn btn-danger"
+                           asp-controller="Funcionario"
+                           asp-action="Excluir"
+                           asp-route-id="@funcionario.FuncionarioId">
+                            Excluir
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
