@@ -51,6 +51,11 @@ namespace Tunes.AspNet.Mvc.Configuration
                 options.BaseAddress = new Uri($"{apiUrlV1}funcionarios/");
             });
 
+            services.AddHttpClient<ClienteApiClient>(options =>
+            {
+                options.BaseAddress = new Uri($"{apiUrlV1}clientes/");
+            });
+
             return services;
         }
     }

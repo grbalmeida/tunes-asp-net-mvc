@@ -1,0 +1,58 @@
+﻿@model ClienteViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["NomeCompleto"] = Model.PrimeiroNome + " " + Model.Sobrenome;
+    ViewData["Title"] = "Excluir " + ViewData["NomeCompleto"];
+}
+<div class="container main-container">
+    <div class="row">
+        <div asp-validation-summary="All" class="text-danger"></div>
+    </div>
+    <h4>Excluir @ViewData["NomeCompleto"] </h4>
+    <br>
+    <h5>Você tem certeza disso?</h5>
+
+    <div class="row">
+        <div class="col-md-6">
+            <dl>
+                <dt>Nome Completo</dt>
+                <dd>@ViewData["NomeCompleto"]</dd>
+                <dt>Empresa</dt>
+                <dd>@Model.Empresa</dd>
+                <dt>Suporte</dt>
+                <dd>@Model.Suporte?.PrimeiroNome</dd>
+            </dl>
+
+            <h6>Endereço</h6>
+
+            <dl>
+                <dt>Endereço</dt>
+                <dd>@Model.Endereco</dd>
+                <dt>Cidade</dt>
+                <dd>@Model.Cidade</dd>
+                <dt>Estado</dt>
+                <dd>@Model.Estado</dd>
+                <dt>País</dt>
+                <dd>@Model.Pais</dd>
+                <dt>CEP</dt>
+                <dd>@Model.CEP</dd>
+                <dt>Fone</dt>
+                <dd>@Model.Fone</dd>
+                <dt>Fax</dt>
+                <dd>@Model.Fax</dd>
+                <dt>Email</dt>
+                <dd>@Model.Email</dd>
+            </dl>
+
+            <div>
+                <form asp-action="Excluir">
+                    <input type="hidden" asp-for="ClienteId" />
+                    <input type="submit" value="Excluir" class="btn btn-danger" />
+                    <a class="btn btn-info" href="javascript:window.history.back();">Voltar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

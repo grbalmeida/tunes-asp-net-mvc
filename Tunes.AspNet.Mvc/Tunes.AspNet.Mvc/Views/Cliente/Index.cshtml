@@ -1,0 +1,73 @@
+﻿@model List<ClienteViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Clientes";
+}
+<div class="container main-container">
+    <h1>Clientes</h1>
+    <hr>
+
+    <p>
+        <a class="btn btn-info" asp-controller="Cliente" asp-action="Novo">Novo Cliente</a>
+    </p>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    Nome Completo
+                </th>
+                <th>
+                    Empresa
+                </th>
+                <th>
+                    Fone
+                </th>
+                <th>
+                    Email
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cliente in Model)
+            {
+                <tr>
+                    <td>
+                        @($"{cliente.PrimeiroNome} {cliente.Sobrenome}")
+                    </td>
+                    <td>
+                        @cliente.Empresa
+                    </td>
+                    <td>
+                        @cliente.Fone
+                    </td>
+                    <td>
+                        @cliente.Email
+                    </td>
+                    <td class="text-right">
+                        <a class="btn btn-warning"
+                           asp-controller="Cliente"
+                           asp-action="Detalhes"
+                           asp-route-id="@cliente.ClienteId">
+                            Detalhes
+                        </a>
+                        <a class="btn btn-info"
+                           asp-controller="Cliente"
+                           asp-action="Editar"
+                           asp-route-id="@cliente.ClienteId">
+                            Editar
+                        </a>
+                        <a class="btn btn-danger"
+                           asp-controller="Cliente"
+                           asp-action="Excluir"
+                           asp-route-id="@cliente.ClienteId">
+                            Excluir
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
