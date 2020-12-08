@@ -22,10 +22,16 @@ namespace Tunes.AspNet.Mvc.Models
         public int Bytes { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        [Display(Name = "Preço Unitário")]
         public decimal PrecoUnitario { get; set; }
 
+        [Display(Name = "Álbum")]
         public int AlbumId { get; set; }
+
+        [Display(Name = "Tipo de Mídia")]
         public int TipoMidiaId { get; set; }
+       
+        [Display(Name = "Gênero")]
         public int GeneroId { get; set; }
 
         public AlbumViewModel Album { get; set; }
